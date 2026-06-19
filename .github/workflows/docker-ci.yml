@@ -17,7 +17,7 @@ on:
         description: 'docker image name to build it'
         required: false
         type: string
-        default: 'test-ci-nodeApp:latest'
+        default: 'test-ci-nodeApp'
 
 jobs:
   ci-docker:
