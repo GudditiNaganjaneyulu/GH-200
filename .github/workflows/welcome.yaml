@@ -1,0 +1,14 @@
+name: welcome
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - run: echo "welcome to the repository!"
+      
