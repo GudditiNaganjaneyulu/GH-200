@@ -24,7 +24,7 @@ jobs:
     name: 'ci docker build'
     runs-on: ubuntu-latest
     env:
-      DOCKER_IMAGE: ${{ inputs.docker-image || 'test-ci-nodeApp:latest' }} 
+      DOCKER_IMAGE: ${{ inputs.docker-image || 'test-ci-nodeApp' }} 
 
     steps:
       - uses: actions/checkout@v4
