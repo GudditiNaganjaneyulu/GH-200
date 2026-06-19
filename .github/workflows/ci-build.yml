@@ -1,0 +1,13 @@
+name: ci docker build and push to ghcr
+
+on:
+  push:
+
+jobs:
+  ci-docker:
+    name: 'ci docker build'
+    uses: ./.github/workflows/docker-reusable-workflow.yml
+    with:
+      docker-image: 'test-ci-nodeapp'
+    secrets:
+      TOKEN_GHCR: ${{ secrets.TOKEN_GHCR }}

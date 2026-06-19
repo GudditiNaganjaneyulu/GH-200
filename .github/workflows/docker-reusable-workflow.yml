@@ -1,23 +1,18 @@
-name: 🐋 Docker ci
+name: 🐋 Docker ci reusable workflow 
 
 on:
-  push:
-    branches:
-      - main
-      - master
-  pull_request:
-    branches:
-      - main
-      - master
-  schedule:
-    - cron: '30 12 * * FRI'
-  workflow_dispatch:
+  workflow_call:
     inputs:
       docker-image:
         description: 'docker image name to build it'
         required: false
         type: string
         default: 'test-ci-nodeapp'
+    secrets:
+      TOKEN_GHCR:
+        description: 'token to authenticate to ghcr'
+        required: true
+  
 
 jobs:
   ci-docker:
