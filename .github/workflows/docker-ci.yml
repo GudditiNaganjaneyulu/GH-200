@@ -17,14 +17,14 @@ on:
         description: 'docker image name to build it'
         required: false
         type: string
-        default: 'test-ci-nodeApp'
+        default: 'test-ci-nodeapp'
 
 jobs:
   ci-docker:
     name: 'ci docker build'
     runs-on: ubuntu-latest
     env:
-      DOCKER_IMAGE: ${{ inputs.docker-image || 'test-ci-nodeApp' }} 
+      DOCKER_IMAGE: ${{ inputs.docker-image || 'test-ci-nodeapp' }} 
 
     steps:
       - uses: actions/checkout@v4
