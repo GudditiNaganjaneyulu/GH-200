@@ -56,5 +56,21 @@
 - Day 6: Create a final exam preparation summary.
 - Day 7: Do a final review of key concepts.
 
+## Study cheat sheet
+| Topic | Syntax | Example | Why it matters |
+|---|---|---|---|
+| Event filters | `on.push.branches` | `branches: [main]` | Control when workflows run |
+| Matrix builds | `strategy.matrix` | `node-version: [18, 20]` | Test multiple environments in parallel |
+| Job dependency | `needs` | `needs: build` | Order execution and reuse outputs |
+| Conditional logic | `if` | `if: ${{ github.event_name == 'pull_request' }}` | Run steps only when conditions are met |
+| Secrets | `secrets.MY_SECRET` | `${{ secrets.SLACK_TOKEN }}` | Protect sensitive values |
+| Environment vars | `env.MY_VAR` | `${{ env.ENV_NAME }}` | Configure jobs and steps dynamically |
+
+### Practical workflow patterns
+- `workflow_dispatch` to trigger manual runs.
+- `paths` filter to only run when relevant files change.
+- `jobs.<job_id>.outputs` and `needs.<job>.outputs` for cross-job data.
+- `actions/cache@v4` with `hashFiles()` for dependency caching.
+
 ## Alternative 4-Week Plan
 Compress the same topics into four weeks by combining related exercises and increasing practice frequency. Focus on fundamentals for the first two weeks and advanced automation plus exam review in the last two.

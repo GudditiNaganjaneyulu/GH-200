@@ -31,5 +31,17 @@
 - Performance improvements like caching and parallel jobs
 - Deployment and release automation best practices
 
+## Exam topic cheat sheet
+| Topic | Key concepts | Example | Study goal |
+|---|---|---|---|
+| Triggers | `push`, `pull_request`, `workflow_dispatch`, `schedule` | `on: pull_request` | Know how workflows start |
+| Filters | `branches`, `paths`, `types`, `tags` | `paths: [src/**]` | Run only relevant workflows |
+| Contexts | `github`, `env`, `secrets`, `needs`, `runner` | `${{ github.ref }}` | Access runtime metadata |
+| Conditionals | `if` expressions | `if: ${{ github.event_name == 'push' }}` | Control execution paths |
+| Reuse | `workflow_call`, composite actions | `uses: ./.github/actions/lint-test` | Reuse workflows and logic |
+| Security | `permissions`, `environments`, secret masking | `permissions: contents: read` | Harden workflow permissions |
+| Artifacts | upload/download | `actions/upload-artifact@v4` | Preserve outputs across jobs |
+| Caching | cache keys, restore behavior | `key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}` | Optimize build times |
+
 ## Exam preparation tip
 Use the topics above to create a checklist and test yourself by writing a small workflow for each concept.

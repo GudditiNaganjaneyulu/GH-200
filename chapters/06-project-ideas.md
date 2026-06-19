@@ -21,3 +21,13 @@
 - Deployments to staging or production are automated.
 - Secrets and environments are managed securely.
 - Workflow execution is observable, and failures are easy to troubleshoot.
+
+## Project idea cheat sheet
+| Area | Focus | Example | Why it matters |
+|---|---|---|---|
+| Multi-service pipelines | Modular workflows | Separate build/test/deploy workflows | Easier maintenance and clearer responsibility |
+| Reusable workflows | Shared logic | `uses: ./.github/workflows/reusable.yml` | Reduce duplication across projects |
+| Security | Secrets and approvals | Use `secrets`, `environments`, `required_reviewers` | Protect deployments and credentials |
+| Caching | Dependencies | `actions/cache@v4` with `hashFiles()` | Speed up CI runs and reduce cost |
+| Observability | Logs and artifacts | Upload build/test artifacts | Make failures diagnosable and reproducible |
+| Runner strategy | GitHub-hosted/self-hosted | `runs-on: [self-hosted, linux]` | Optimize cost and custom hardware use |

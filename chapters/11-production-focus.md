@@ -29,3 +29,20 @@
 - Update self-hosted runner software and OS regularly.
 - Review workflows after repository or architecture changes.
 - Maintain documentation for workflow design and environment dependencies.
+
+## Production readiness cheat sheet
+| Domain | Guideline | Example |
+|---|---|---|
+| Workflow hygiene | Clear names, descriptions, and comments | `name: CI` with meaningful step names |
+| Security | Least privilege and secret masking | `permissions: contents: read` |
+| Reliability | `timeout-minutes`, retries, stable actions | `timeout-minutes: 30` |
+| Observability | Artifacts, logs, summaries | Upload test results and build logs |
+| Deployment | Use environments and approvals | `environment: production` |
+| Maintenance | Keep action versions updated | `actions/setup-node@v5` |
+
+### Production checklist
+- Use environments and approvals for sensitive deployments.
+- Keep secrets and tokens out of logs.
+- Review workflow permissions and restrict what is needed.
+- Add health checks and deploy validation steps.
+- Document workflow behavior and update after changes.

@@ -137,4 +137,19 @@ jobs:
       - name: Deploy manifest
         run: kubectl apply -f k8s/deployment.yaml
 ```
+
+## Sample workflow cheat sheet
+| Workflow type | Key elements | Example pattern | Notes |
+|---|---|---|---|
+| Basic CI | checkout, setup, install, test | `actions/checkout@v4`, `npm test` | Core starting workflow |
+| Matrix build | `strategy.matrix` | Node versions, OS combinations | Cross-environment coverage |
+| Reusable workflow | `workflow_call`, `uses:` | `.github/workflows/reusable-ci.yml` | Share workflow logic across repos |
+| Composite action | `runs: using: composite` | `.github/actions/lint-test/action.yml` | Encapsulate multi-step actions |
+| Self-hosted runner | `runs-on: [self-hosted, linux]` | `runs-on: [self-hosted]` | Use custom hardware or tools |
+| Deployment | cloud CLI, kubectl, helm | `az aks get-credentials` | Automate production deployments |
+
+### Workflow notes
+- Use `id` on steps that set outputs so later steps can reference them.
+- Keep action versions pinned to at least major version, e.g. `actions/checkout@v4`.
+- Use context values like `${{ github.ref }}` and `${{ github.sha }}` when naming artifacts or images.
 ```
